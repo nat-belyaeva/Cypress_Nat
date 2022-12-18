@@ -1,14 +1,12 @@
 /// <reference types="cypress"/>
 
-import Footer from "../pageObjects/Footer";
-import AboutUs from "../pageObjects/AboutUsPage";
-import ApiPage from "../pageObjects/ApiPage";
-import MarketplacePage from "../pageObjects/MarketplacePage";
+import Footer from "../../../pageObjects/Footer";
+import AboutUs from "../../../pageObjects/AboutUsPage";
+import ApiPage from "../../../pageObjects/ApiPage";
 
 const footer = new Footer();
 const aboutUs = new AboutUs();
 const apiPage = new ApiPage();
-const marketplacePage = new MarketplacePage();
 
 describe('About Us', () => {
 
@@ -19,7 +17,7 @@ describe('About Us', () => {
         cy.visit('/');
     })
 
-    it('AT_028.006 | About us > Verify "Products Documentation" button redirects to API page', function() {
+    it('About us > Verify "Products Documentation" button redirects to API page', function() {
         footer.clickAboutUsLink();
         aboutUs.clickProductsDocumentationButton();
 
@@ -27,7 +25,7 @@ describe('About Us', () => {
         apiPage.elements.getWeatherApiTitle().should('be.visible');
     });
     
-    it('AT_028.009 | About us > Verify the button "Buy in the Marketplace" redirects to the Marketplace page', function() {
+    it('About us > Verify the button "Buy in the Marketplace" redirects to the Marketplace page', function() {
         footer.clickAboutUsLink();
         aboutUs.clickBuyMarketplaceButton();
 

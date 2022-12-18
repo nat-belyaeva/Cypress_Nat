@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import Header from "../pageObjects/Header";
-import SignInPage from "../pageObjects/SignInPage";
+import Header from "../../../pageObjects/Header";
+const SignInPage = require("../../../pageObjects/SignInXpath");
 
 const header = new Header();
 const signInPage = new SignInPage();
@@ -15,17 +15,17 @@ describe('SignIn test suit', () => {
     cy.visit('/');
   });
 
-  it('AT_031.001 | Sign in > Account Dropdown Menu > After cliking the "logout" button the message appears', function () {
+  it('Sign in > Account Dropdown Menu > After clicking the "logout" button the message appears', function () {
     header.clickSignInMenuLink();
     signInPage.signIn(this.data.userEmail, this.data.userPassword);
-  
+
     header.clickUserDropDownMenu();
     header.clickUserLogoutLink();
 
     signInPage.elements.getSignOutAllert().should('have.text', this.data.signOutAllertMessage)
   });
 
-  it('AT_007.006 | Main page>Sign in> Create an account > "Lost your password? Click here to recover." checking.', function ()  {
+  it('Main page>Sign in> Create an account > "Lost your password? Click here to recover." checking.', function ()  {
     header.clickSignInMenuLink();
     cy.url().should('eq', this.data.signInUrlUsers)
     signInPage.elements.getTextClickHereToRecover().should('be.visible')

@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
 
-import ApiKeysPage from "../pageObjects/ApiKeysPage.js";
-import Footer from "../pageObjects/Footer.js"
-import Header from "../pageObjects/Header.js";
-import SignInPage from "../pageObjects/SignInPage.js";
-import WidgetsPage from "../pageObjects/WidgetsPage.js";
+import ApiKeysPage from "../../../pageObjects/ApiKeysPage.js";
+import Footer from "../../../pageObjects/Footer.js"
+import Header from "../../../pageObjects/Header.js";
+import SignInPage from "../../../pageObjects/SignInPage.js";
+import WidgetsPage from "../../../pageObjects/WidgetsPage.js";
 
 const footer = new Footer();
 const widgetsPage = new WidgetsPage();
@@ -29,7 +29,7 @@ describe('Widgets page test suite', () => {
         cy.visit('/');
     });
 
-    it('AT_021.003 | Footer > Widgets > Verify there are 9 widgets on the page', function() {
+    it('Footer > Widgets > Verify there are 9 widgets on the page', function() {
         footer.clickWidgetsLink();
         widgetsPage.elements.getWidgets().should('have.length', this.data.widgetsQuantity)
                           .and('be.visible')

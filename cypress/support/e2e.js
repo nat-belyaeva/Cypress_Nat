@@ -35,3 +35,4 @@ Cypress.on('window:before:load', function (win) {
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+require('@cypress/xpath');
